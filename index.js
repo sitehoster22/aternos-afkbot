@@ -1,5 +1,10 @@
 const mineflayer = require('mineflayer')
-const keep_alive = require('./keepalive.js')
+var http = require('http');
+
+http.createServer(function (req, res) {
+  res.write("Im alive");
+  res.end();
+}).listen(8080);
 const fs = require('fs');
 let rawdata = fs.readFileSync('config.json');
 let data = JSON.parse(rawdata);
